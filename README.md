@@ -34,6 +34,6 @@ Block Diagram of the final system
 Class Diagram with most important classes
 
 
-![Database Diagram ](/images/block-diagram.png)
+![Database Diagram ](/images/database-er.png)
 
 Database ER diagram.
