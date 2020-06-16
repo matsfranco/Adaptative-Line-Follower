@@ -5,6 +5,7 @@ This is the source code of a line follower robot implemented using Image Process
 
 
 ![ALF Robot](/images/alf-robot.jpg)
+
 The Adaptative Linefollower Robot (ALF) platform. Built from zero using 3D printed parts.
 
 ## Implementation Highlights
@@ -24,10 +25,13 @@ This module implements a webserver using Pyhton and Flask to create a visual int
 ### Diagrams
 
 ![Block Diagram](/images/block-diagram.png)
+
 Block Diagram of the final system
 
 ![Class Diagram](/images/class-diagram.png)
+
 Class Diagram with most important classes
 
 ![Database Diagram ])/images/block-diagram.png)
+
 Database ER diagram.
