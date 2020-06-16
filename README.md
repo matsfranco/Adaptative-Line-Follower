@@ -4,7 +4,7 @@ The Adaptative Line Follower (ALF) robot was my graduation project in Computer E
 This is the source code of a line follower robot implemented using Image Processing (OpenCV) to identify the line and an Reinforcement Learning (Q-learning) algorithm.
 
 
-![ALF Robot](/images/block-diagram.png)
+![ALF Robot](/images/alf-robotpng)
 The Adaptative Linefollower Robot (ALF) platform. Built from zero using 3D printed parts.
 
 ## Implementation Highlights
