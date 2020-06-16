@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .formTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 48px;
+    color: black;
+  }
+  .chartProcessTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 36px;
+    color: black;
+  }
+  .chartTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 42px;
+    color: black;
+  }
+  .formFields {
+    font-family: "Helvetica";
+    font-style: bold;
+    color: black;
+  } 
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+    text-align: center;
+  }
+  canvas {
+    width: 1400px !important;
+    height: 800px !important;
+  }
+
+  .chart{
+    width: 1200px !important;
+    height: 500px !important;;
+  }
+
+</style>
+
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </br>
+    <form method="POST">
+    <fieldset>
+      <legend> 
+        <div class = formTitle> Learning Process </div>  
+      </legend>
+      </br>
+      <div class=formFields>
+        Learning Process Id 
+        <input name="lpId">
+      </div>
+      
+      </br>
+      <input type="submit">
+    </fieldset>
+  </form>
+
+</head>
+<body>
+
+  <div>
+    <center>
+  
+    </center>
+  </div>  
+</body>
+</html>

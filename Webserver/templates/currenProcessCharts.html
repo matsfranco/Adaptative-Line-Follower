@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  h1 {
+    color: rgb(200,200,200);
+  }
+  h2 {
+    color: rgb(200,200,200);
+  }
+  canvas {
+    width:900px !important;
+    height:500px !important;
+  }
+  .formTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 20px;
+    color: rgb(200,200,200);
+  }
+  .formFields {
+    font-family: "Helvetica";
+    font-style: bold;
+    color: rgb(200,200,200);
+  } 
+</style>
+
+<head bgcolor="#191923">
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <form method="POST">
+    <fieldset>
+      <legend> 
+        <div class = formTitle> Learning Process Information </div>  
+      </legend>
+      <div class=formFields>
+        Learning Process Id 
+        <input name="lpId">
+      </div>
+      <div class=formFields> 
+        <br>First Iteration 
+        <input name="firstIt">
+      </div>
+      <div class=formFields> 
+        <br>Last Iteration 
+        <input name="lastIt">
+      </div>
+      <input type="submit">
+    </fieldset>
+  </form>
+</head>
+
+<body bgcolor="#191923">
+  <center>
+    <h1>{{ chart1_title }}</h1>
+  </center>
+  <center>
+    <canvas id="State0Chart" width = "50" height = "30"></canvas>
+    <script>
+      var stateLabels = [
+        {% for item in chart1_labels %}
+          "{{ item }}",
+        {% endfor %}];
+      var toTheLeft = [0,
+        {% for item in chart1_dataset[0] %}
+          {{ item }},
+        {% endfor %}0];
+      var aboveTheLine = [0,
+        {% for item in chart1_dataset[1] %}
+          {{ item }},
+        {% endfor %}0];
+      var toTheRight = [0,
+        {% for item in chart1_dataset[2] %}
+          {{ item }},
+        {% endfor %}0];
+      var lost = [0,
+        {% for item in chart1_dataset[3]%}
+          {{ item }},
+        {% endfor %}0];
+
+      var ctx = document.getElementById("State0Chart");
+      var State0Chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+        labels: stateLabels,
+          datasets: [ { 
+            data: toTheLeft,
+            label: "To the Left (0)",
+            borderColor: 'rgb(250, 215, 45,1)',
+            backgroundColor: 'rgb(250, 215, 45,0.3)'
+          },{ 
+            data: aboveTheLine,
+            label: "Above the Line (1)",
+            borderColor: 'rgb(150, 200, 60,1)',
+            backgroundColor: 'rgb(150, 200, 60,0.3)'
+          },{ 
+            data: toTheRight,
+            label: "To the Right (2)",
+            borderColor: 'rgb(250, 215, 45,1)',
+            backgroundColor: 'rgb(250, 215, 45,0.3)'
+          },{ 
+            data: lost,
+            label: "Lost (3)",
+            borderColor: 'rgb(230, 65, 50,1)',
+            backgroundColor: 'rgb(230, 65, 50,0.3)'
+          }]
+        },
+        options: {
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              boxWidth: 40,
+              fontColor: 'rgb(200, 200, 200)',
+              fontSize: 16
+            }
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              gridLines: {
+                display: true,
+                color: 'rgb(140, 140, 140)'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Actions',
+                fontFamily: 'Helvetica Neue',
+                fontColor: 'rgb(200, 200, 200)',
+                fontSize: 22
+              },
+              ticks: {
+                fontSize: 16,
+                fontColor: 'rgb(200, 200, 200)',
+                fontStyle: 'bold'
+              }
+            }],
+            yAxes: [{
+              display: true,
+              gridLines: {
+                display: true,
+                color: 'rgb(140, 140, 140)'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Probability (%)',
+                fontFamily: 'Helvetica Neue',
+                fontColor: 'rgb(200, 200, 200)',
+                fontSize: 22
+              },
+              ticks: {
+                fontSize: 16,
+                fontColor: 'rgb(200, 200, 200)',
+                fontStyle: 'bold',
+                beginAtZero: true,
+                steps: 10,
+                stepValue: 5,
+                max: 100
+              }
+            }]
+          }
+        }
+      });
+
+      var getData = function() { 
+        State0Chart.update();
+      }
+      setInterval(getData, 1000);
+
+      ctx.style.backgroundColor = 'rgba(25, 25, 35,255)';
+    </script>
+    
+    <center>
+    <h2>{{ chart2_title }}</h2>
+    </center> 
+    <div> 
+    <canvas id="chart2" width = "50" height = "30"></canvas>
+      <script>
+
+        var iterationLabels = [
+        {% for item in chart2_labels %}
+          "{{ item }}",
+        {% endfor %}];
+
+        var linePositions = [
+          {% for item in chart2_linePosition %}
+            {{ item }},
+          {% endfor %}];
+
+        var currentStates = [
+          {% for item in chart2_currentState %}
+            {{ item }},
+          {% endfor %}];
+
+        var actionsTaken = [
+          {% for item in chart2_actionTaken %}
+            {{ item }},
+          {% endfor %}];
+
+        var nextStates = [
+          {% for item in chart2_nextState %}
+            {{ item }},
+          {% endfor %}];
+
+        var rewards = [
+          {% for item in chart2_reward %}
+            {{ item }},
+          {% endfor %}];
+
+        var positionErrors = [
+          {% for item in chart2_positionError %}
+            {{ item }},
+          {% endfor %}];
+
+        var ctx2 = document.getElementById("chart2");
+        var chart2 = new Chart(ctx2, {
+          type: 'line',
+          data: {
+            labels: iterationLabels,
+            datasets: [ { 
+              data: linePositions,
+              label: "Line Position",
+              borderColor: 'rgb(255, 255, 255,1)',
+              fill: false
+            },{ 
+              data: positionErrors,
+              label: "Position Error",
+              borderColor: 'rgb(230, 65, 50,1)',
+              fill: false
+            },{ 
+              data: currentStates,
+              label: "Current State",
+              borderColor: 'rgb(150, 200, 60,1)',
+              fill: false
+            },{ 
+              data: actionsTaken,
+              label: "Action Taken",
+              borderColor: 'rgb(24, 195, 240,1)',
+              fill: false
+            },{ 
+              data: nextStates,
+              label: "Next State",
+              borderColor: 'rgb(250, 215, 45,1)',
+              fill: false
+            },{ 
+              data: rewards,
+              label: "Rewards",
+              borderColor: 'rgb(255, 140, 40,1)',
+              fill: false
+            }]
+          },
+          options: {
+            legend: {
+              display: true,
+              position: 'top',
+              labels: {
+                boxWidth: 40,
+                fontColor: 'rgb(200, 200, 200)',
+                fontSize: 16
+              }
+            },
+            scales: {
+              xAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Iterations',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  steps: 10,
+                  stepValue: 5,
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  maxTicksLimit: 20
+                }
+              }],
+              yAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'General Measures',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  beginAtZero: true,
+                  steps: 10,
+                  stepValue: 5
+                }
+              }]
+            }
+          }
+        });
+      ctx2.style.backgroundColor = 'rgba(25, 25, 35,255)';
+
+      var getData = function() { 
+        chart2.update();
+      }
+
+      setInterval(getData, 1000);
+
+      </script>
+    </div>
+  </center>
+
+  <center>
+    <h2>{{ chart3_title }}</h2>
+    </center> 
+    <center>
+    <div> 
+    <canvas id="chart3" width = "50" height = "30"></canvas>
+      <script>
+
+        var dataset = [
+          {% for action in range(chart3_actions) %}
+              { data: {{ log[state][action] }}, label: "Action {{action}}", borderColor: "{{ solidDataColor[action] }}", fill: false},
+          {% endfor %}
+        ];
+
+        var iterationLabels = [
+        {% for item in chart3_labels %}
+          "{{ item }}",
+        {% endfor %}];
+
+        
+        var ctx3 = document.getElementById("chart3");
+        var chart3 = new Chart(ctx3, {
+          type: 'line',
+          data: {
+            labels: iterationLabels,
+            datasets: dataset,
+          },
+          options: {
+            legend: {
+              display: true,
+              position: 'top',
+              labels: {
+                boxWidth: 40,
+                fontColor: 'rgb(200, 200, 200)',
+                fontSize: 16
+              }
+            },
+            scales: {
+              xAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Iterations',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  steps: 10,
+                  stepValue: 5,
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  maxTicksLimit: 20
+                }
+              }],
+              yAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'General Measures',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  beginAtZero: true,
+                  steps: 10,
+                  stepValue: 5
+                }
+              }]
+            }
+          }
+        });
+      ctx3.style.backgroundColor = 'rgba(25, 25, 35,255)';
+
+      setInterval(getData, 1000);
+
+      </script>
+
+  </center>
+
+
+
+</body>
+</html>

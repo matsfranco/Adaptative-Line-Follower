@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .formTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 48px;
+    color: black;
+  }
+  .chartTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 42px;
+    color: black;
+  }
+  .formFields {
+    font-family: "Helvetica";
+    font-style: bold;
+    color: rgb(200,200,200);
+  } 
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+    text-align: center;
+  }
+  canvas {
+    width: 1400px !important;
+    height: 800px !important;
+  }
+
+  .chart{
+    width: 1200px !important;
+    height: 500px !important;;
+  }
+
+</style>
+
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <center>
+    <div class = formTitle> Current Learning Process: {{ learningProcessId }}</div>  
+  </center>
+</head>
+<body>
+
+  <div>
+    <center>
+      </br>
+      </br>          
+      <div id="probsPerState" class="chart">
+        <script>
+
+          var actionLabels = [" ",
+            {% for action in range(actions) %}
+              "Action {{ action }}",
+            {% endfor %}"  "];
+
+
+          var datasets = [
+          {% for state in range(states) %}
+            { x: actionLabels,
+              y: {{ stateActionValues[state] }},
+              mode: 'lines',
+              line: {shape: 'spline'},
+              name: "State {{state}}"
+            },
+          {% endfor %}];
+
+          var layout = {
+            title:'Action Choice Probability per State'
+          };
+
+          Plotly.newPlot('probsPerState', datasets, layout);
+  
+        </script> 
+      </div>
+      </br>
+      </br>
+      <div id="generalMeasuresChart" class="chart"> 
+        <script>
+            var iterationLabels = [
+              {% for item in chart2_labels %}
+                "{{ item }}",
+              {% endfor %}];
+
+            var linePositions = [
+              {% for item in chart2_linePosition %}
+                {{ item }},
+              {% endfor %}];
+
+            var positionErrors = [
+              {% for item in chart2_positionError %}
+                {{ item }},
+              {% endfor %}];
+
+            var currentStates = [
+              {% for item in chart2_currentState %}
+                {{ item }},
+              {% endfor %}];
+
+            var actionsTaken = [
+              {% for item in chart2_actionTaken %}
+                {{ item }},
+              {% endfor %}];
+
+            var nextStates = [
+              {% for item in chart2_nextState %}
+                {{ item }},
+              {% endfor %}];
+
+            var rewards = [
+              {% for item in chart2_reward %}
+                {{ item }},
+              {% endfor %}];
+
+            var linePositionDataset = {
+              x: iterationLabels,
+              y: linePositions,
+              mode: 'lines',
+              line: {shape: 'spline'}, 
+              name: 'Line Position',
+            };        
+
+            var linePositionErrorDataset = {
+              x: iterationLabels,
+              y: positionErrors,
+              mode: 'lines',
+              line: {shape: 'spline'}, 
+              name: 'Line Position Error',
+            };
+
+            var currentStateDataset = {
+              x: iterationLabels,
+              y: currentStates,
+              mode: 'lines',
+              name: 'Current State',
+            };        
+
+            var actionsTakenDataset= {
+              x: iterationLabels,
+              y: actionsTaken,
+              mode: 'lines',
+              line: {shape: 'spline'}, 
+              name: 'Action Taken',
+            };
+
+            var nextStatesDataset = {
+              x: iterationLabels,
+              y: nextStates,
+              mode: 'lines',
+              line: {shape: 'spline'}, 
+              name: 'Next State',
+            };        
+
+            var rewardsDataset = {
+              x: iterationLabels,
+              y: rewards,
+              mode: 'lines',
+              line: {shape: 'spline'}, 
+              name: 'Rewards',
+            };
+
+            var averageRewardDataset = {
+              x: iterationLabels,
+              y: {{ averageReward_data  }},
+              mode: 'lines',
+              name: 'Reward Average',
+            };
+
+            var layout = {
+              title:'General Q-learning Measures'
+            };
+
+            var data = [linePositionDataset,linePositionErrorDataset,
+                        currentStateDataset,actionsTakenDataset,
+                        nextStatesDataset,rewardsDataset,
+                        averageRewardDataset];
+
+            Plotly.newPlot('generalMeasuresChart', data, layout);
+        </script>
+      </div>   
+      </br>
+      </br>
+      <div id="stateActionAccessHeatMap" class="chart">
+        <script>
+          var actionLabels = [
+            {% for action in range(actions) %}
+              'Action {{ action }}',
+            {% endfor %}];
+
+          var stateLabels = [
+            {% for state in range(states) %}
+              'State {{ state }}',
+            {% endfor %}];
+
+          var xValues = ['Action 0', 'Action 1', 'Action 2','Action 3','Action 4'];
+          var yValues = ['State 0', 'State 1', 'State 2','State 3','State 4','State 5'];
+          var zValues = {{heatmap_data}};
+          var data = [{
+            x: actionLabels,
+            y: stateLabels,
+            z: zValues,
+            type: 'heatmap',
+            colorscale: 'YIOrRd',
+            showscale: true
+          }];
+
+          var layout = {
+            title: 'State-Action Heatmap: number of access',
+            annotations: [],
+            xaxis: {
+              ticks: '',
+              side: 'top'
+            },
+            yaxis: {
+              ticks: '',
+              ticksuffix: ' ',
+              width: 700,
+              height: 700,
+              autosize: true
+            }
+          };
+
+          for ( var i = 0; i < yValues.length; i++ ) {
+            for ( var j = 0; j < xValues.length; j++ ) {
+              var currentValue = zValues[i][j];
+              if (currentValue != 0.0) {
+                var textColor = 'black';
+              } else {
+                var textColor = 'black';
+              }
+              var result = {
+                xref: 'x1',
+                yref: 'y1',
+                x: xValues[j],
+                y: yValues[i],
+                text: zValues[i][j],
+                font: {
+                  family: 'Arial',
+                  size: 12,
+                  color: 'rgb(50, 171, 96)'
+                },
+                  showarrow: false,
+                  font: {
+                  color: textColor
+                }
+              };
+              layout.annotations.push(result);
+            }
+          }
+          Plotly.newPlot('stateActionAccessHeatMap', data, layout);
+        </script>
+      </div>
+      </br>
+      </br>
+      {% for state in range(states) %}
+      <div id="probEvolution{{state}}" class="chart">
+        <script>
+
+          var iterationLabels = [
+              {% for item in chart2_labels %}
+                "{{ item }}",
+              {% endfor %}];
+
+          var dataset = [
+            {% for action in range(actions) %}
+              { x: iterationLabels,
+                y: {{ stateActionProbLog[state][action] }},
+                mode: 'lines',
+                line: {shape: 'spline'},
+                name: "State {{state}} - Action {{action}}" },
+            {% endfor %} ];
+
+          var layout = {
+            title:'State {{state}} - Action Probability Evolution'
+          };
+
+          Plotly.newPlot('probEvolution{{state}}', dataset, layout);
+
+        </script>
+      </div>
+      </br>
+      </br>
+      {% endfor %}
+    </center>
+  </div>  
+</body>
+</html>

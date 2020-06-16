@@ -1,0 +1,1126 @@
+New Serial Device: MCU created as MCU @ /dev/ttyUSB0 / 115200bps
+
+Connecting to MCU...
+
+MCU.sendMessage: sent to MCU - 3000
+
+Received from MCU: 3000
+
+MCU connected!
+
+New QLearning defined: Vision Q-learning
+
+New AdaptativeLineDetector defined: <picamera.camera.PiCamera object at 0x6f207b90> with agent Vision Q-learning
+
+/usr/lib/python2.7/dist-packages/picamera/encoders.py:544: PiCameraResolutionRounded: frame size rounded up from 240x60 to 240x64
+  width, height, fwidth, fheight)))
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 115    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 68     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 2
+0.0     0.0     0.0
+-0.005  0.0     0.0
+0.0     0.0     0.0
+0.0     0.0     0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 101    Current State = 1
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 113    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 4
+0.0     0.0     0.0
+-0.005  0.1     0.0
+0.0     0.0     0.0
+0.0     0.0     0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 118    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 6
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+0.0     0.0     0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 8
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+0.0     -0.1    0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 0      Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 10
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.1    0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 12
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.19   0.0
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 14
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.19   -0.1
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 16
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.28   -0.1
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 3      Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 18
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.257  -0.1
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 20
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.3403 -0.1
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 22
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.4153 -0.1
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 175    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 24
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.4153 -0.199
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 166    Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 88     Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 26
+0.0     0.0     0.0
+-0.1045 0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.4153 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 121    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 157    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 28
+0.0     0.0     0.0
+0.015   0.1     0.0
+0.0     0.0     0.0
+-0.1    -0.4153 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 163    Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 30
+0.0     0.0     0.0
+0.015   0.1     0.0
+0.0     0.0     0.0
+-0.1963 -0.4153 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 32
+0.0     0.0     0.0
+0.015   0.1     0.0
+0.0     0.0     0.0
+-0.1963 -0.4801 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 118    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 85     Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 34
+0.0     0.0     0.0
+0.1225  0.1     0.0
+0.0     0.0     0.0
+-0.1963 -0.4801 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 87     Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 198    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 36
+0.0     0.0     0.0
+0.0039  0.1     0.0
+0.0     0.0     0.0
+-0.1963 -0.4801 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 215    Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 38
+0.0     0.0     0.0
+0.0039  0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.4801 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 40
+0.0     0.0     0.0
+0.0039  0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 94     Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 42
+0.0     0.0     0.0
+-0.1028 0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.0701
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 210    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 44
+0.0     0.0     0.0
+-0.1028 0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.1694
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 191    Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 0      Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 46
+0.0     0.0     0.0
+-0.1028 0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.2677
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 225    Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 149    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 48
+0.0     0.0     0.0
+-0.1028 0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 139    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 209    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 50
+0.0     0.0     0.0
+-0.2044 0.1     0.0
+0.0     0.0     0.0
+-0.283  -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 222    Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 52
+0.0     0.0     0.0
+-0.2044 0.1     0.0
+0.0     0.0     0.0
+-0.3666 -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 118    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 54
+0.0     0.0     0.0
+-0.2044 0.1     0.0
+0.0     0.0     0.0
+-0.2209 -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 152    Current State = 1
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 76     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 56
+0.0     0.0     0.0
+-0.2044 0.1     -0.005
+0.0     0.0     0.0
+-0.2209 -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 60     Current State = 0
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 58
+0.0     -0.1119 0.0
+-0.2044 0.1     -0.005
+0.0     0.0     0.0
+-0.2209 -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 101    Current State = 1
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 178    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 60
+0.0     -0.1119 0.0
+-0.2044 0.1     -0.1164
+0.0     0.0     0.0
+-0.2209 -0.5384 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 172    Current State = 3
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 166    Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 62
+0.0     -0.1119 0.0
+-0.2044 0.1     -0.1164
+0.0     0.0     0.0
+-0.2209 -0.5964 -0.1319
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 165    Current State = 3
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 119    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 64
+0.0     -0.1119 0.0
+-0.2044 0.1     -0.1164
+0.0     0.0     0.0
+-0.2209 -0.5964 -0.0097
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 119    Current State = 1
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 119    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 66
+0.0     -0.1119 0.0
+-0.2044 0.199   -0.1164
+0.0     0.0     0.0
+-0.2209 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 75     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 68
+0.0     -0.1119 0.0
+-0.2044 0.199   -0.1164
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 80     Current State = 0
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 119    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 70
+0.1179  -0.1119 0.0
+-0.2044 0.199   -0.1164
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 128    Current State = 1
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 141    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 72
+0.1179  -0.1119 0.0
+-0.2044 0.297   -0.1164
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 139    Current State = 1
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 110    Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 74
+0.1179  -0.1119 0.0
+-0.2044 0.297   0.022
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 105    Current State = 1
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 94     Next State = 1
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 76
+0.1179  -0.1119 0.0
+-0.2044 0.394   0.022
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 146    Current State = 1
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 78
+0.1179  -0.1119 0.0
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.2038 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 80
+0.1179  -0.1119 0.0
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.2843 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 82
+0.1179  -0.1119 0.0
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3568 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 19     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 84
+0.1179  -0.1119 0.0
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3155 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 14     Current State = 0
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 86
+0.1179  -0.1119 -0.1009
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3155 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Current State = 3
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = None   Next State = 3
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 88
+0.1179  -0.1119 -0.1009
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 14     Current State = 0
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 18     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 90
+0.1179  -0.0951 -0.1009
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 22     Current State = 0
+Actions[1] selected - [100, 100]
+MCU.sendMessage: sent to MCU - 1000,100,100
+
+QLearning.takeAction() - Action taken = 1
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 12     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 92
+0.1179  -0.08   -0.1009
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 19     Current State = 0
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 74     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 94
+0.1117  -0.08   -0.1009
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 80     Current State = 0
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 16     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 96
+0.1117  -0.08   -0.0857
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 8      Current State = 0
+Actions[0] selected - [0, 100]
+MCU.sendMessage: sent to MCU - 1000,0,100
+
+QLearning.takeAction() - Action taken = 0
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 70     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 98
+0.1056  -0.08   -0.0857
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 77     Current State = 0
+Actions[2] selected - [100, 0]
+MCU.sendMessage: sent to MCU - 1000,100,0
+
+QLearning.takeAction() - Action taken = 2
+
+---------------------------------------------------
+QLearning.learn(): Line Center = 13     Next State = 0
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003
+
+====================================
+============ Q Table ===============
+========================== it 100
+0.1056  -0.08   -0.0727
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+
+====================================
+============ Q Table ===============
+========================== it 101
+0.1056  -0.08   -0.0727
+-0.2848 0.394   0.022
+0.0     0.0     0.0
+-0.3848 -0.5964 -0.0097
+MCU.sendMessage: sent to MCU - 3003
+
+MCU.sendMessage: sent to MCU - 3003

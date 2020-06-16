@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .formTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 48px;
+    color: black;
+  }
+  .chartProcessTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 36px;
+    color: black;
+  }
+  .chartTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 42px;
+    color: black;
+  }
+  .formFields {
+    font-family: "Helvetica";
+    font-style: bold;
+    color: black;
+  } 
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    padding: 20px;
+    text-align: center;
+  }
+  canvas {
+    width: 1400px !important;
+    height: 800px !important;
+  }
+
+  .chart{
+    width: 1200px !important;
+    height: 500px !important;;
+  }
+
+</style>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <center>
+    <div class = formTitle>Table of Learning Processes</div>  
+  </center>
+</head>
+<body>
+  <table id="example">
+  <thead>
+    <tr>
+      <th class="site_name">Id</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th># Actions</th>
+      <th># States</th>
+      <th>Rewars</th>
+      <th>Max Speed</th>
+      <th>Alpha</th>
+      <th>Lambda</th>
+      <th>Image (W)</th>
+      <th>Image (H)</th>
+      <th>Image (fps)</th>
+      <th># Iteractions</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.4/css/buttons.dataTables.min.css"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css"></script>
+  <script>
+    var learningProcesses = [
+            {% for row in range(numberOfRows) %}
+              [
+              {% for column in range(numberOfColumns) %}
+                "{{learningProcessesData[row][column]}}",
+              {% endfor %} 
+              ],
+            {% endfor %}]
+
+  $(function(){
+    $("#example").dataTable({
+      "aaData": learningProcesses
+    });
+  })
+  </script>
+</body>
+</html>

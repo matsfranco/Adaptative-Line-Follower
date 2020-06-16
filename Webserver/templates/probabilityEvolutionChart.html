@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  h1 {
+    color: rgb(200,200,200);
+  }
+  h2 {
+    color: rgb(200,200,200);
+  }
+  canvas {
+    width:900px !important;
+    height:500px !important;
+  }
+  .formTitle {
+    font-family: "Helvetica";
+    font-style: bold;
+    font-size: 20px;
+    color: rgb(200,200,200);
+  }
+  .formFields {
+    font-family: "Helvetica";
+    font-style: bold;
+    color: rgb(200,200,200);
+  } 
+</style>
+
+<head bgcolor="#191923">
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <form method="POST">
+    <fieldset>
+      <legend> 
+        <div class = formTitle> Learning Process Information </div>  
+      </legend>
+      <div class=formFields>
+        Learning Process Id    
+        <input name="lpId">
+      </div>
+      <div class=formFields>
+        <br>State   
+        <input name="state">
+      </div>
+      <br>
+      <input type="submit">
+    </fieldset>
+  </form>
+</head>
+
+<body bgcolor="#191923">
+     
+    <center>
+    <h2>{{ chart2_title }}</h2>
+    </center> 
+    <center>
+    <div> 
+    <canvas id="chart2" width = "50" height = "30"></canvas>
+      <script>
+
+        var dataset = [
+          {% for action in range(actions) %}
+              { data: {{ log[state][action] }}, label: "State {{state}} - Action {{action}}", borderColor: "{{ solidDataColor[action] }}", fill: false},
+          {% endfor %}
+        ];
+
+        var iterationLabels = [
+        {% for item in chart2_labels %}
+          "{{ item }}",
+        {% endfor %}];
+
+        
+        var ctx2 = document.getElementById("chart2");
+        var chart2 = new Chart(ctx2, {
+          type: 'line',
+          data: {
+            labels: iterationLabels,
+            datasets: dataset,
+          },
+          options: {
+            legend: {
+              display: true,
+              position: 'top',
+              labels: {
+                boxWidth: 40,
+                fontColor: 'rgb(200, 200, 200)',
+                fontSize: 16
+              }
+            },
+            scales: {
+              xAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Iterations',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  steps: 10,
+                  stepValue: 5,
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  maxTicksLimit: 20
+                }
+              }],
+              yAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  color: 'rgb(140, 140, 140)'
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'General Measures',
+                  fontFamily: 'Helvetica Neue',
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontSize: 22
+                },
+                ticks: {
+                  fontSize: 16,
+                  fontColor: 'rgb(200, 200, 200)',
+                  fontStyle: 'bold',
+                  beginAtZero: true,
+                  steps: 10,
+                  stepValue: 5
+                }
+              }]
+            }
+          }
+        });
+      ctx2.style.backgroundColor = 'rgba(25, 25, 35,255)';
+
+      setInterval(getData, 1000);
+
+      </script>
+
+  </center>
+</body>
+</html>
