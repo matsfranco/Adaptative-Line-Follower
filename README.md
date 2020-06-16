@@ -28,10 +28,12 @@ This module implements a webserver using Pyhton and Flask to create a visual int
 
 Block Diagram of the final system
 
+
 ![Class Diagram](/images/class-diagram.png)
 
 Class Diagram with most important classes
 
-![Database Diagram ])/images/block-diagram.png)
+
+![Database Diagram ](/images/block-diagram.png)
 
 Database ER diagram.
