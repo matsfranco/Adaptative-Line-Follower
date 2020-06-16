@@ -19,7 +19,7 @@ This is the source code of a Arduino-based module to control direct current elec
 It was implemented a Serial interface to implement the communication between CVLU and this unit.
 CVLU send a stream of instructions to control robot movement.
 
-### Webserve
+### Webserver
 This module implements a webserver using Pyhton and Flask to create a visual interface to follow up learning processes in real time and access previous learning processes for analysis using tables and chats in Javascript (Plot.ly).
 
 ### Diagrams
